@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Crawler Tin Tức Dân Trí</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* CSS riêng cho trang Crawler Tool */
+    .crawler-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .crawler-title {
+      font-size: 22px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .form-control-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-control-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(0, 136, 55, 0.2);
+    }
+
+    .btn-action-group {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-submit {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-submit:hover {
+      background-color: #006629;
+    }
+
+    .btn-home {
+      background-color: #666;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .btn-home:hover {
+      background-color: #444;
+    }
+
+    /* Hiển thị kết quả Cào dữ liệu */
+    .result-box {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 12px 15px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      border: 1px solid #c3e6cb;
+      font-weight: bold;
+    }
+
+    .json-preview {
+      background-color: #282c34;
+      color: #abb2bf;
+      padding: 20px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 13px;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .loading-spinner {
+      display: none;
+      margin-top: 15px;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NÔNG TỰA TRANG CHỦ -->
+  <header class="site-header">
+    <div class="header-top container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-text">DÂN TRÍ</span>
+        </a>
+      </div>
+      <div>
+        <a href="index.html" class="btn-home">
+          <i class="fa-solid fa-house"></i> Về Trang Chủ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH CỦA TRANG CRAWLER -->
+  <div class="container">
+    <div class="crawler-container">
+      <h2 class="crawler-title"><i class="fa-solid fa-spider"></i> CHỨC NĂNG CRAWLER TIN TỨC</h2>
+      
+      <p style="margin-bottom: 15px; color: #555;">
+        Nhập đường dẫn URL của một bài viết trên báo Dân Trí (ví dụ: <code>https://dantri.com.vn/bat-dong-san/...htm</code>) để tự động bóc tách dữ liệu và lưu vào hệ thống.
+      </p>
+
+      <form id="crawler-form" onsubmit="handleCrawlArticle(event)">
+        <div class="form-group">
+          <label for="article-url">Đường dẫn bài viết (URL):</label>
+          <input 
+            type="url" 
+            id="article-url" 
+            class="form-control-input" 
+            placeholder="https://dantri.com.vn/bat-dong-san/ha-noi-tinh-co-che-boi-thuong-dat-dac-biet-cho-7-du-an-duong-sat-20260928122246655.htm" 
+            required
+          >
+        </div>
+
+        <div class="btn-action-group">
+          <button type="submit" class="btn-submit" id="btn-crawl">
+            <i class="fa-solid fa-download"></i> Bắt đầu Cào Dữ Liệu
+          </button>
+          <a href="index.html" class="btn-home">Xem Trang Web Tin Tức</a>
+        </div>
+      </form>
+
+      <!-- Thông báo đang xử lý -->
+      <div id="loading-status" class="loading-spinner">
+        <i class="fa-solid fa-spinner fa-spin"></i> Đang tải và trích xuất dữ liệu từ bài viết... Vui lòng đợi trong giây lát.
+      </div>
+
+      <!-- Khung hiển thị kết quả JSON cào được -->
+      <div id="result-box" class="result-box">
+        <div class="alert-success">
+          <i class="fa-solid fa-circle-check"></i> Đã cào dữ liệu thành công và tự động lưu vào LocalStorage!
+        </div>
+
+        <h3>Dữ liệu JSON thu thập được:</h3>
+        <pre id="json-output" class="json-preview"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- NHÚNG FILE SCRIPT -->
+  <script src="crawler.js"></script>
+  <script>
+    // Xử lý sự kiện khi bấm nút Cào Dữ Liệu
+    async function handleCrawlArticle(event) {
+      event.preventDefault();
+
+      const urlInput = document.getElementById("article-url").value.trim();
+      const loadingStatus = document.getElementById("loading-status");
+      const resultBox = document.getElementById("result-box");
+      const jsonOutput = document.getElementById("json-output");
+      const btnCrawl = document.getElementById("btn-crawl");
+
+      if (!urlInput) {
+        alert("Vui lòng nhập đường dẫn URL bài viết!");
+        return;
+      }
+
+      // Hiển thị trạng thái Loading
+      loadingStatus.style.display = "block";
+      resultBox.style.display = "none";
+      btnCrawl.disabled = true;
+      btnCrawl.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang cào dữ liệu...';
+
+      try {
+        // 1. Gọi hàm crawlArticle từ file crawler.js
+        const articleData = await crawlArticle(urlInput);
+
+        // 2. Lấy danh sách bài viết hiện tại trong LocalStorage
+        const LOCAL_POSTS_KEY = "dantri_posts";
+        let localPosts = JSON.parse(localStorage.getItem(LOCAL_POSTS_KEY)) || [];
+
+        // Kiểm tra trùng lặp theo ID
+        const existingIndex = localPosts.findIndex(p => p.id === articleData.id);
+        if (existingIndex !== -1) {
+          localPosts[existingIndex] = articleData; // Cập nhật nếu bài đã tồn tại
+        } else {
+          localPosts.unshift(articleData); // Chèn bài viết mới vào đầu mảng
+        }
+
+        // 3. Lưu mảng bài viết đã cập nhật trở lại LocalStorage
+        localStorage.setItem(LOCAL_POSTS_KEY, JSON.stringify(localPosts));
+
+        // 4. Hiển thị kết quả JSON ra màn hình cho người dùng
+        jsonOutput.textContent = JSON.stringify(articleData, null, 2);
+        resultBox.style.display = "block";
+
+      } catch (error) {
+        alert("Đã xảy ra lỗi trong quá trình cào bài viết: " + error.message);
+      } finally {
+        // Tắt trạng thái Loading
+        loadingStatus.style.display = "none";
+        btnCrawl.disabled = false;
+        btnCrawl.innerHTML = '<i class="fa-solid fa-download"></i> Bắt đầu Cào Dữ Liệu';
+      }
+    }
+  </script>
+</body>
+</html>
