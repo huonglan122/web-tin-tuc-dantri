@@ -1,92 +1,67 @@
 [
   {
-    "id": "dtri-20260928122246655",
+    "id": "dtri-2026101801",
+    "title": "Ngân hàng Nhà nước yêu cầu giảm lãi suất huy động tối thiểu 0,5%/năm",
+    "slug": "ngan-hang-nha-nuoc-yeu-cau-giam-lai-suat-huy-dong",
+    "excerpt": "Ngân hàng Nhà nước yêu cầu giảm lãi suất huy động tối thiểu 0,5%/năm và lãi suất cho vay nhằm hỗ trợ doanh nghiệp phát triển kinh tế.",
+    "content": "Ngân hàng Nhà nước vừa ban hành chỉ thị yêu cầu các ngân hàng thương mại tiết giảm chi phí, tăng cường ứng dụng công nghệ để phấn đấu giảm lãi suất cho vay từ 0,5 đến 1%/năm. Mục tiêu nhằm tháo gỡ khó khăn cho sản xuất kinh doanh, thúc đẩy tăng trưởng kinh tế bền vững trong giai đoạn cuối năm.",
+    "image": "https://icdn.dantri.com.vn/zoom/1200_800/2023/10/05/duong-sat-do-thi-1696515814524.jpg",
+    "author": { "name": "Nguyễn Phong" },
+    "category": ["KINH DOANH", "TÀI CHÍNH"],
+    "publishedAt": "2026-10-18 14:30",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/kinh-doanh/ngan-hang-nha-nuoc-yeu-cau-giam-lai-suat.htm"
+  },
+  {
+    "id": "dtri-2026101802",
+    "title": "Ông Trần Cẩm Tú: 'Không nên tư duy thích lắm tổ chức, lắm đầu mối'",
+    "slug": "ong-tran-cam-tu-khong-nen-tu-duy-thich-lam-to-chuc",
+    "excerpt": "Thường trực Ban Bí thư Trần Cẩm Tú nhấn mạnh việc tinh gọn bộ máy, không để tình trạng chồng chéo chức năng nhiệm vụ giữa các cơ quan.",
+    "content": "Phát biểu tại hội nghị, Thường trực Ban Bí thư Trần Cẩm Tú chỉ rõ yêu cầu cấp thiết về việc tiếp tục đổi mới, sắp xếp tổ chức bộ máy của hệ thống chính trị tinh gọn, hoạt động hiệu lực, hiệu quả. Cần loại bỏ tư duy thích mở rộng tổ chức, tăng đầu mối không cần thiết.",
+    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/dam-cuoi-1696515814524.jpg",
+    "author": { "name": "Văn Hưng" },
+    "category": ["THỜI SỰ", "CHÍNH TRỊ"],
+    "publishedAt": "2026-10-18 11:15",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/thoi-su/ong-tran-cam-tu-phat-bieu.htm"
+  },
+  {
+    "id": "dtri-2026101803",
+    "title": "Phó Thủ tướng thông tin về sắp xếp bộ máy, cắt giảm thủ tục hành chính",
+    "slug": "pho-thu-tuong-thong-tin-ve-sap-xep-bo-may",
+    "excerpt": "Chính phủ đẩy mạnh cắt giảm, đơn giản hóa thủ tục hành chính, tạo điều kiện thuận lợi nhất cho người dân và doanh nghiệp.",
+    "content": "Phó Thủ tướng cho biết Chính phủ đang quyết liệt chỉ đạo các bộ ngành rà soát, cắt giảm ít nhất 20% quy định thủ tục hành chính liên quan đến hoạt động kinh doanh, chuyển mạnh sang hình thức xử lý trực tuyến trên Cổng dịch vụ công quốc gia.",
+    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/bangkok-ngap-1696515814524.jpg",
+    "author": { "name": "Thành Chung" },
+    "category": ["THỜI SỰ", "CHÍNH TRỊ"],
+    "publishedAt": "2026-10-18 10:00",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/thoi-su/pho-thu-tuong-thong-tin.htm"
+  },
+  {
+    "id": "dtri-2026101804",
+    "title": "Bộ trưởng Bộ Nội vụ: Đường Hồ Chí Minh phải làm xong mới kết thúc dự án",
+    "slug": "bo-truong-bo-noi-vu-duong-ho-chi-minh",
+    "excerpt": "Bộ trưởng khẳng định tầm quan trọng chiến lược của tuyến đường Hồ Chí Minh và yêu cầu đẩy nhanh tiến độ hoàn thành toàn bộ tuyến.",
+    "content": "Tại phiên thảo luận, Bộ trưởng nhấn mạnh dự án đường Hồ Chí Minh có ý nghĩa quan trọng về kinh tế - xã hội và quốc phòng an ninh. Các đơn vị thi công phải tập trung nguồn lực để hoàn thành các đoạn còn lại đúng kế hoạch.",
+    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/dam-cuoi-bac-ninh-1696515814524.jpg",
+    "author": { "name": "Luân Dũng" },
+    "category": ["THỜI SỰ", "GIAO THÔNG"],
+    "publishedAt": "2026-10-18 09:20",
+    "source": "dantri.com.vn",
+    "url": "https://dantri.com.vn/thoi-su/bo-truong-bo-noi-vu.htm"
+  },
+  {
+    "id": "dtri-2026101805",
     "title": "Hà Nội tính cơ chế bồi thường đất đặc biệt cho 7 dự án đường sắt",
     "slug": "ha-noi-tinh-co-che-boi-thuong-dat-dac-biet-cho-7-du-an-duong-sat",
     "excerpt": "Hà Nội đang xem xét cơ chế bồi thường, hỗ trợ và tái định cư đặc biệt để triển khai 7 dự án đường sắt quan trọng trên địa bàn thành phố.",
-    "content": "Hà Nội đang nghiên cứu và đề xuất cơ chế bồi thường, hỗ trợ và tái định cư đặc biệt nhằm tháo gỡ khó khăn trong công tác giải phóng mặt bằng cho 7 dự án đường sắt trọng điểm. Đây là nhóm dự án hạ tầng giao thông có vai trò quan trọng trong việc phát triển mạng lưới vận tải công cộng và giảm ùn tắc đô thị. Thành phố nhấn mạnh việc cần cơ chế linh hoạt để đẩy nhanh tiến độ triển khai, đảm bảo quyền lợi cho người dân bị ảnh hưởng và đồng thời đáp ứng yêu cầu phát triển hạ tầng chiến lược.",
-    "image": "https://icdn.dantri.com.vn/zoom/1200_800/2023/10/05/duong-sat-do-thi-1696515814524.jpg",
-    "author": {
-      "name": "Văn Hưng"
-    },
-    "category": [
-      "BẤT ĐỘNG SẢN",
-      "DỰ ÁN"
-    ],
-    "publishedAt": "2026-09-28 12:22",
-    "source": "dantri.com.vn",
-    "url": "https://dantri.com.vn/bat-dong-san/ha-noi-tinh-co-che-boi-thuong-dat-dac-biet-cho-7-du-an-duong-sat-20260928122246655.htm"
-  },
-  {
-    "id": "dtri-20260928100012345",
-    "title": "Thiếu gia Ấn Độ quyết cưới cô gái Việt Nam vì hành động không ngờ",
-    "slug": "thieu-gia-an-do-quyet-cuoi-co-gai-viet-nam-vi-hanh-dong-khong-ngo",
-    "excerpt": "Yêu cô gái Việt, Abhishek (đến từ Ấn Độ) vấp phải sự phản đối từ gia đình vì khác biệt văn hóa, khoảng cách địa lý. Anh và bạn gái tìm nhiều cách thuyết phục bố mẹ.",
-    "content": "Yêu cô gái Việt, Abhishek (đến từ Ấn Độ) vấp phải sự phản đối từ gia đình vì khác biệt văn hóa, khoảng cách địa lý. Anh và bạn gái tìm nhiều cách thuyết phục bố mẹ để được kết hôn. Sau nhiều nỗ lực chân thành và sự kiên trì, tình yêu của hai người đã vượt qua mọi rào cản địa lý và định kiến văn hóa.",
-    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/dam-cuoi-1696515814524.jpg",
-    "author": {
-      "name": "Bích Phương"
-    },
-    "category": [
-      "ĐỜI SỐNG",
-      "CỘNG ĐỒNG"
-    ],
-    "publishedAt": "2026-09-28 10:00",
-    "source": "dantri.com.vn",
-    "url": "https://dantri.com.vn/doi-song/thieu-gia-an-do-quyet-cuoi-co-gai-viet-nam.htm"
-  },
-  {
-    "id": "dtri-20260928091512346",
-    "title": "Cô gái Việt tiết lộ cảnh chưa từng thấy giữa Bangkok ngập lụt diện rộng",
-    "slug": "co-gai-viet-tiet-lo-canh-chua-tung-thay-giua-bangkok-ngap-lut",
-    "excerpt": "Những trận mưa lớn kéo dài khiến nhiều tuyến đường tại thủ đô Bangkok (Thái Lan) chìm trong biển nước, gây ảnh hưởng nặng nề đến đời sống người dân.",
-    "content": "Những trận mưa lớn kéo dài khiến nhiều tuyến đường tại thủ đô Bangkok (Thái Lan) chìm trong biển nước, gây ảnh hưởng nặng nề đến đời sống người dân. Nhiều khu vực giao thông bị đình trệ hoàn toàn, lực lượng chức năng phải nỗ lực cứu hộ liên tục.",
-    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/bangkok-ngap-1696515814524.jpg",
-    "author": {
-      "name": "Minh Nhân"
-    },
-    "category": [
-      "THẾ GIỚI",
-      "THẾ GIỚI ĐÓ ĐÂY"
-    ],
-    "publishedAt": "2026-09-28 09:15",
-    "source": "dantri.com.vn",
-    "url": "https://dantri.com.vn/the-gioi/bangkok-ngap-lut-dien-rong.htm"
-  },
-  {
-    "id": "dtri-20260928083012347",
-    "title": "Ông bố ở Bắc Ninh khóc như mưa tiễn con gái về nhà chồng chỉ cách 6km",
-    "slug": "ong-bo-o-bac-ninh-khoc-nhu-mua-tien-con-gai-ve-nha-chong",
-    "excerpt": "Khoảnh khắc người bố không giữ được giọt nước mắt trong ngày vui của con gái khiến cộng đồng mạng không khỏi xúc động.",
-    "content": "Khoảnh khắc người bố không giữ được giọt nước mắt trong ngày vui của con gái khiến cộng đồng mạng không khỏi xúc động. Dù nhà chồng chỉ cách 6km, tình cảm sâu nặng của người cha dành cho con gái vẫn đong đầy qua từng cử chỉ thương yêu.",
-    "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/dam-cuoi-bac-ninh-1696515814524.jpg",
-    "author": {
-      "name": "Thanh Xuân"
-    },
-    "category": [
-      "ĐỜI SỐNG",
-      "CỘNG ĐỒNG"
-    ],
-    "publishedAt": "2026-09-28 08:30",
-    "source": "dantri.com.vn",
-    "url": "https://dantri.com.vn/doi-song/ong-bo-bac-ninh-khoc-tien-con.htm"
-  },
-  {
-    "id": "dtri-20260927201012348",
-    "title": "Cô gái Việt trồng rau, làm vườn 100m2 trên đất Mỹ để đỡ nhớ nhà",
-    "slug": "co-gai-viet-trong-rau-lam-vuon-100m2-tren-dat-my-de-do-nho-nha",
-    "excerpt": "Để vơi đi nỗi nhớ quê nhà, chị Trinh cải tạo lại mảnh đất trống quanh nhà thành khu vườn 100m2 trồng nhiều loại rau Việt Nam.",
-    "content": "Để vơi đi nỗi nhớ quê nhà, chị Trinh cải tạo lại mảnh đất trống quanh nhà thành khu vườn 100m2 trồng nhiều loại rau Việt Nam. Khu vườn xanh mướt với đầy đủ các loại rau thơm, cà chua, mướp đắng mang lại cảm giác ấm áp như đang ở quê nhà.",
+    "content": "Hà Nội đang nghiên cứu và đề xuất cơ chế bồi thường, hỗ trợ và tái định cư đặc biệt nhằm tháo gỡ khó khăn trong công tác giải phóng mặt bằng cho 7 dự án đường sắt trọng điểm. Đây là nhóm dự án hạ tầng giao thông có vai trò quan trọng trong việc phát triển mạng lưới vận tải công cộng.",
     "image": "https://icdn.dantri.com.vn/zoom/600_400/2023/10/05/trong-rau-1696515814524.jpg",
-    "author": {
-      "name": "Nguyễn Hà"
-    },
-    "category": [
-      "ĐỜI SỐNG",
-      "NHÀ ĐẸP"
-    ],
-    "publishedAt": "2026-09-27 20:10",
+    "author": { "name": "Văn Hưng" },
+    "category": ["BẤT ĐỘNG SẢN", "DỰ ÁN"],
+    "publishedAt": "2026-10-18 08:30",
     "source": "dantri.com.vn",
-    "url": "https://dantri.com.vn/doi-song/co-gai-viet-trong-rau-tren-dat-my.htm"
+    "url": "https://dantri.com.vn/bat-dong-san/ha-noi-tinh-co-che-boi-thuong-dat.htm"
   }
 ]

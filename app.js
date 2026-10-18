@@ -1,13 +1,10 @@
-// CÁC KHÓA LƯU TRỮ TRONG LOCALSTORAGE
 const LOCAL_POSTS_KEY = "dantri_posts";
 const LOCAL_CATEGORIES_KEY = "dantri_categories";
 
-// BIẾN TOÀN CỤC BỘ NHỚ TRONG
 let allPosts = [];
 let allCategories = [];
 let currentCategory = "latest";
 
-// TỰ ĐỘNG CHẠY KHI TRANG WEB TẢI XONG
 document.addEventListener("DOMContentLoaded", async () => {
   await initData();
   renderMenu();
@@ -15,11 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderPosts(currentCategory);
 });
 
-/**
- * 1. KHỞI TẠO DỮ LIỆU VÀ LƯU VÀO LOCALSTORAGE
- */
 async function initData() {
-  // --- Đọc hoặc Khởi tạo Chuyên mục ---
   const localCats = localStorage.getItem(LOCAL_CATEGORIES_KEY);
   if (localCats) {
     allCategories = JSON.parse(localCats);
@@ -30,11 +23,10 @@ async function initData() {
       allCategories = data.menu || [];
       localStorage.setItem(LOCAL_CATEGORIES_KEY, JSON.stringify(allCategories));
     } catch (err) {
-      console.error("Lỗi đọc file categories.json:", err);
+      console.error("Lỗi đọc categories.json:", err);
     }
   }
 
-  // --- Đọc hoặc Khởi tạo Bài viết ---
   const localPosts = localStorage.getItem(LOCAL_POSTS_KEY);
   if (localPosts) {
     allPosts = JSON.parse(localPosts);
@@ -44,14 +36,11 @@ async function initData() {
       allPosts = await res.json();
       localStorage.setItem(LOCAL_POSTS_KEY, JSON.stringify(allPosts));
     } catch (err) {
-      console.error("Lỗi đọc file posts.json:", err);
+      console.error("Lỗi đọc posts.json:", err);
     }
   }
 }
 
-/**
- * 2. RENDER THANH ĐIỀU HƯỚNG (NAVIGATION BAR)
- */
 function renderMenu() {
   const mainMenu = document.getElementById("main-menu");
   if (!mainMenu) return;
@@ -82,9 +71,6 @@ function renderMenu() {
   mainMenu.innerHTML = html;
 }
 
-/**
- * RENDER CHUYÊN MỤC DƯỚI FOOTER
- */
 function renderFooterCategories() {
   const footerCatList = document.getElementById("footer-categories");
   if (!footerCatList) return;
@@ -99,9 +85,6 @@ function renderFooterCategories() {
     .join("");
 }
 
-/**
- * 3. LỌC BÀI VIẾT THEO CHUYÊN MỤC
- */
 function filterByCategory(catId, event) {
   if (event) event.preventDefault();
   currentCategory = catId;
@@ -115,11 +98,7 @@ function showHomeView(event) {
   document.getElementById("detail-view").classList.add("hidden");
 }
 
-/**
- * 4. RENDER DANH SÁCH BÀI VIẾT
- */
 function renderPosts(catId) {
-  // Lấy dữ liệu bài viết mới nhất từ LocalStorage
   const localPosts = localStorage.getItem(LOCAL_POSTS_KEY);
   if (localPosts) {
     allPosts = JSON.parse(localPosts);
@@ -127,7 +106,6 @@ function renderPosts(catId) {
 
   let filtered = [...allPosts];
 
-  // Nếu không phải trang chủ hay tin mới nhất thì lọc theo tên chuyên mục
   if (catId !== "home" && catId !== "latest") {
     let catTitle = "";
     allCategories.forEach((cat) => {
@@ -155,7 +133,6 @@ function renderPosts(catId) {
     document.getElementById("category-title").innerText = catId === "home" ? "TRANG CHỦ" : "TIN MỚI NHẤT";
   }
 
-  // Sắp xếp bài viết theo thời gian đăng giảm dần (mới -> cũ)
   filtered.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
   const topLeft = document.getElementById("featured-left");
@@ -169,7 +146,7 @@ function renderPosts(catId) {
     return;
   }
 
-  // Top 1: Bài viết lớn bên trái (Featured)
+  // Top 1: Bài viết lớn bên trái
   const mainPost = filtered[0];
   topLeft.innerHTML = `
     <div class="featured-card-large" onclick="viewPostDetail('${mainPost.id}')">
@@ -179,7 +156,7 @@ function renderPosts(catId) {
     </div>
   `;
 
-  // Top 2 & Top 3: 2 bài viết nhỏ bên phải
+  // Top 2 & Top 3: 2 Bài viết nhỏ bên phải
   const rightPosts = filtered.slice(1, 3);
   topRight.innerHTML = rightPosts
     .map(
@@ -195,7 +172,7 @@ function renderPosts(catId) {
     )
     .join("");
 
-  // Các bài còn lại (từ vị trí thứ 4 trở đi) hiển thị dạng danh sách dọc
+  // Các bài còn lại xếp dọc (List view)
   const restPosts = filtered.slice(3);
   remainingList.innerHTML = restPosts
     .map((post) => {
@@ -203,12 +180,14 @@ function renderPosts(catId) {
       const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category;
       return `
       <div class="post-item-horizontal" onclick="viewPostDetail('${post.id}')">
-        <img src="${post.image || 'https://via.placeholder.com/200x130'}" alt="${post.title}">
+        <img src="${post.image || 'https://via.placeholder.com/220x140'}" alt="${post.title}">
         <div class="post-item-info">
-          <h3>${post.title}</h3>
-          <p>${post.excerpt}</p>
+          <div>
+            <h3>${post.title}</h3>
+            <p>${post.excerpt}</p>
+          </div>
           <div class="post-meta-tag">
-            <span><i class="fa-solid fa-folder"></i> ${catName}</span> &nbsp;|&nbsp;
+            <span class="cat-name">${catName}</span> &nbsp;|&nbsp;
             <span><i class="fa-solid fa-user"></i> ${authorName}</span> &nbsp;|&nbsp;
             <span><i class="fa-regular fa-clock"></i> ${post.publishedAt || ""}</span>
           </div>
@@ -219,9 +198,6 @@ function renderPosts(catId) {
     .join("");
 }
 
-/**
- * 5. TRANG CHI TIẾT BÀI VIẾT
- */
 function viewPostDetail(postId) {
   const post = allPosts.find((p) => p.id === postId);
   if (!post) return;
@@ -247,4 +223,57 @@ function viewPostDetail(postId) {
 function backToCategoryView() {
   document.getElementById("detail-view").classList.add("hidden");
   document.getElementById("category-view").classList.remove("hidden");
+}
+
+// Xử lý Tìm kiếm bài viết
+function handleSearch(event) {
+  if (event.key === "Enter") {
+    executeSearch();
+  }
+}
+
+function executeSearch() {
+  const query = document.getElementById("search-input").value.trim().toLowerCase();
+  if (!query) return;
+
+  showHomeView();
+  document.getElementById("category-title").innerText = `KẾT QUẢ TÌM KIẾM: "${query.toUpperCase()}"`;
+
+  const results = allPosts.filter(
+    (p) => p.title.toLowerCase().includes(query) || p.excerpt.toLowerCase().includes(query)
+  );
+
+  const topLeft = document.getElementById("featured-left");
+  const topRight = document.getElementById("featured-right");
+  const remainingList = document.getElementById("remaining-posts-list");
+
+  if (results.length === 0) {
+    topLeft.innerHTML = "<p>Không tìm thấy bài viết phù hợp.</p>";
+    topRight.innerHTML = "";
+    remainingList.innerHTML = "";
+    return;
+  }
+
+  topLeft.innerHTML = "";
+  topRight.innerHTML = "";
+  remainingList.innerHTML = results
+    .map((post) => {
+      const authorName = typeof post.author === "object" ? post.author.name || "Dân Trí" : post.author;
+      const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category;
+      return `
+      <div class="post-item-horizontal" onclick="viewPostDetail('${post.id}')">
+        <img src="${post.image}" alt="${post.title}">
+        <div class="post-item-info">
+          <h3>${post.title}</h3>
+          <p>${post.excerpt}</p>
+          <div class="post-meta-tag">
+            <span class="cat-name">${catName}</span> | 
+            <span>${authorName}</span> | 
+            <span>${post.publishedAt}</span>
+          </div>
+        </div>
+      </div>
+    `;
+    })
+    .join("");
 }
