@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dân Trí - Tin tức Việt Nam và quốc tế nóng, nhanh, cập nhật 24h</title>
+  <title>Dân Trí - Báo điện tử Tin tức Việt Nam và Quốc tế</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- 1. TOP UTILITY BAR (Thời tiết, Ngày tháng, Lối tắt) -->
+  <!-- UTILITY TOP BAR -->
   <div class="top-bar">
     <div class="container top-bar-content">
       <div class="top-bar-left">
-        <span id="current-date" class="date-text"><i class="fa-regular fa-calendar-days"></i> Chủ nhật, 18/10/2026</span>
+        <span class="date-text"><i class="fa-regular fa-calendar-days"></i> Chủ nhật, 18/10/2026</span>
         <span class="weather-text"><i class="fa-solid fa-cloud-sun"></i> Hà Nội 34°C</span>
       </div>
       <div class="top-bar-right">
-        <a href="#" class="top-link"><i class="fa-solid fa-bolt"></i> Fica</a>
-        <a href="#" class="top-link"><i class="fa-solid fa-newspaper"></i> DTNews</a>
-        <a href="#" class="top-link"><i class="fa-solid fa-users"></i> Nội vụ & Xã hội</a>
-        <a href="crawler.html" class="btn-crawler-top"><i class="fa-solid fa-spider"></i> Trang Crawler</a>
+        <a href="crawler.html" class="btn-crawler-top"><i class="fa-solid fa-spider"></i> Trang Crawler Bài Viết</a>
       </div>
     </div>
   </div>
 
-  <!-- 2. MAIN HEADER (Logo, Search & Actions) -->
+  <!-- SITE HEADER -->
   <header class="site-header">
     <div class="container header-main-content">
       <div class="logo">
@@ -34,75 +31,81 @@
         </a>
       </div>
 
-      <!-- Ô Tìm kiếm & Tài khoản -->
       <div class="header-search-box">
         <div class="search-input-wrapper">
           <input type="text" id="search-input" placeholder="Tìm kiếm tin tức..." onkeyup="handleSearch(event)">
           <button onclick="executeSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <a href="#" class="user-login"><i class="fa-regular fa-user"></i> Đăng nhập</a>
       </div>
     </div>
 
-    <!-- NAVIGATION BAR DÂN TRÍ -->
+    <!-- NAVIGATION BAR -->
     <nav class="navbar">
       <div class="container">
         <ul id="main-menu" class="menu-nav">
-          <!-- Danh sách chuyên mục sẽ được render tự động từ categories.json -->
+          <!-- Dynamic Categories Rendered from JS -->
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- 3. MAIN CONTENT CONTAINER -->
+  <!-- MAIN CONTENT CONTAINER -->
   <main class="main-content container">
 
-    <!-- LAYOUT DANH SÁCH BÀI VIẾT THEO CHUYÊN MỤC -->
+    <!-- 1. GIAO DIỆN DANH SÁCH BÀI VIẾT THEO CHUYÊN MỤC -->
     <section id="category-view" class="view-section">
       <div class="category-header">
         <h2 id="category-title" class="section-title">TIN NỔI BẬT</h2>
       </div>
 
-      <!-- TOP SECTION: 3 BÀI MỚI NHẤT (1 LỚN TRÁI + 2 NHỎ PHẢI) -->
+      <!-- TOP SECTION: 3 BÀI MỚI NHẤT (1 LỚN BÊN TRÁI + 2 NHỎ BÊN PHẢI) -->
       <div id="top-featured-section" class="top-section">
         <div id="featured-left" class="featured-left">
-          <!-- Bài viết lớn bên trái -->
+          <!-- Featured Large Post Render Here -->
         </div>
         <div id="featured-right" class="featured-right">
-          <!-- 2 bài viết nhỏ bên phải -->
+          <!-- 2 Small Featured Posts Render Here -->
         </div>
       </div>
 
-      <!-- DANH SÁCH BÀI VIẾT CÒN LẠI (LIST DỌC) -->
+      <!-- DANH SÁCH CÁC BÀI VIẾT CÒN LẠI (LIST DỌC) -->
       <div class="remaining-header">
-        <h3 class="sub-section-title">CÁC BÀI VIẾT KHÁC</h3>
+        <h3 class="sub-section-title">BÀI VIẾT CÒN LẠI</h3>
       </div>
       <div id="remaining-posts-list" class="remaining-list">
-        <!-- Danh sách bài xếp dọc render tại đây -->
+        <!-- Vertical List Posts Render Here -->
       </div>
     </section>
 
-    <!-- TRANG CHI TIẾT BÀI VIẾT -->
+    <!-- 2. GIAO DIỆN TRANG CHI TIẾT BÀI VIẾT (ĐẦY ĐỦ 6 THÀNH PHẦN YÊU CẦU) -->
     <section id="detail-view" class="view-section hidden">
       <button class="btn-back" onclick="backToCategoryView()">
         <i class="fa-solid fa-arrow-left"></i> Quay lại danh sách tin
       </button>
+
       <article class="article-detail">
+        <!-- 1. CHUYÊN MỤC -->
         <div class="article-category-badge" id="detail-category">CHUYÊN MỤC</div>
+
+        <!-- 2. TIÊU ĐỀ -->
         <h1 id="detail-title" class="article-title">Tiêu đề bài viết</h1>
-        
+
+        <!-- 3. TÁC GIẢ, 4. THỜI GIAN ĐĂNG, NGUỒN -->
         <div class="article-meta">
           <span class="article-author" id="detail-author"><i class="fa-solid fa-user"></i> Tác giả</span>
           <span class="article-time" id="detail-time"><i class="fa-regular fa-clock"></i> Thời gian</span>
           <span class="article-source" id="detail-source"><i class="fa-solid fa-globe"></i> dantri.com.vn</span>
         </div>
 
+        <!-- TÓM TẮT SAPO -->
         <p id="detail-excerpt" class="article-excerpt-text"></p>
 
-        <div class="article-image-container">
+        <!-- 5. ẢNH BÀI VIẾT -->
+        <div class="article-image-container" id="detail-image-wrapper">
           <img id="detail-image" src="" alt="Ảnh bài viết">
         </div>
 
+        <!-- 6. NỘI DUNG CHI TIẾT -->
         <div id="detail-content" class="article-body-content">
           <!-- Nội dung chi tiết bài viết -->
         </div>
@@ -111,13 +114,13 @@
 
   </main>
 
-  <!-- 4. FOOTER WEBSITE ĐA CỘT -->
+  <!-- SITE FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-col">
         <h3 class="footer-logo">DÂN TRÍ</h3>
         <p class="footer-desc">
-          Báo điện tử Dân Trí - Cơ quan của Bộ Lao động - Thương binh và Xã hội. Giấy phép hoạt động báo điện tử số 298/GP-BTTTT.
+          Báo điện tử Dân Trí - Tin tức cập nhật liên tục 24/7 về Kinh tế, Xã hội, Thế giới và Đời sống.
         </p>
       </div>
 
@@ -126,14 +129,14 @@
         <ul class="footer-links">
           <li><a href="#" onclick="showHomeView(event)">Trang chủ</a></li>
           <li><a href="#" onclick="filterByCategory('latest')">Mới nhất</a></li>
-          <li><a href="crawler.html">Trang Crawler Bài Viết</a></li>
+          <li><a href="crawler.html">Trang Crawler Tin Tức</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4>CHUYÊN MỤC CHÍNH</h4>
+        <h4>CHUYÊN MỤC</h4>
         <ul class="footer-links" id="footer-categories">
-          <!-- Tự động load từ JS -->
+          <!-- Dynamic Footer Categories -->
         </ul>
       </div>
 
@@ -141,19 +144,17 @@
         <h4>THÔNG TIN LIÊN HỆ</h4>
         <p><i class="fa-solid fa-envelope"></i> toasoan@dantri.com.vn</p>
         <p><i class="fa-solid fa-phone"></i> Hotline: 0973.567.567</p>
-        
-        <h4 class="social-title">THEO DÕI DÂN TRÍ</h4>
         <div class="social-icons">
-          <a href="#" class="social-icon fb"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" class="social-icon yt"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" class="social-icon tt"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
       <div class="container">
-        <p>&copy; 2026 Bản quyền thuộc về Báo điện tử Dân Trí. Tất cả các quyền được bảo lưu.</p>
+        <p>&copy; 2026 Bản quyền thuộc về Báo điện tử Dân Trí.</p>
       </div>
     </div>
   </footer>

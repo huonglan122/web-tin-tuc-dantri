@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function initData() {
+  // 1. Đọc Chuyên mục từ LocalStorage hoặc file json
   const localCats = localStorage.getItem(LOCAL_CATEGORIES_KEY);
   if (localCats) {
     allCategories = JSON.parse(localCats);
@@ -27,6 +28,7 @@ async function initData() {
     }
   }
 
+  // 2. Đọc Bài viết từ LocalStorage hoặc file json
   const localPosts = localStorage.getItem(LOCAL_POSTS_KEY);
   if (localPosts) {
     allPosts = JSON.parse(localPosts);
@@ -133,6 +135,7 @@ function renderPosts(catId) {
     document.getElementById("category-title").innerText = catId === "home" ? "TRANG CHỦ" : "TIN MỚI NHẤT";
   }
 
+  // SẮP XẾP BÀI VIẾT THEO THỜI GIAN GIẢM DẦN (MỚI -> CŨ)
   filtered.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
   const topLeft = document.getElementById("featured-left");
@@ -140,13 +143,13 @@ function renderPosts(catId) {
   const remainingList = document.getElementById("remaining-posts-list");
 
   if (filtered.length === 0) {
-    topLeft.innerHTML = "<p>Chưa có bài viết nào trong chuyên mục này.</p>";
+    topLeft.innerHTML = "<p>Chưa có bài viết nào thuộc chuyên mục này.</p>";
     topRight.innerHTML = "";
     remainingList.innerHTML = "";
     return;
   }
 
-  // Top 1: Bài viết lớn bên trái
+  // TOP SECTION: 1 Bài viết lớn bên trái (Featured)
   const mainPost = filtered[0];
   topLeft.innerHTML = `
     <div class="featured-card-large" onclick="viewPostDetail('${mainPost.id}')">
@@ -156,7 +159,7 @@ function renderPosts(catId) {
     </div>
   `;
 
-  // Top 2 & Top 3: 2 Bài viết nhỏ bên phải
+  // TOP SECTION: 2 Bài viết nhỏ bên phải
   const rightPosts = filtered.slice(1, 3);
   topRight.innerHTML = rightPosts
     .map(
@@ -172,7 +175,7 @@ function renderPosts(catId) {
     )
     .join("");
 
-  // Các bài còn lại xếp dọc (List view)
+  // CÁC BÀI VIẾT CÒN LẠI (LIST DỌC)
   const restPosts = filtered.slice(3);
   remainingList.innerHTML = restPosts
     .map((post) => {
@@ -198,6 +201,9 @@ function renderPosts(catId) {
     .join("");
 }
 
+/**
+ * HIỂN THỊ TRANG CHI TIẾT BÀI VIẾT (ĐẦY ĐỦ 6 THÀNH PHẦN)
+ */
 function viewPostDetail(postId) {
   const post = allPosts.find((p) => p.id === postId);
   if (!post) return;
@@ -205,17 +211,36 @@ function viewPostDetail(postId) {
   document.getElementById("category-view").classList.add("hidden");
   document.getElementById("detail-view").classList.remove("hidden");
 
-  const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category;
+  // Xử lý Chuyên mục dạng mảng -> chuỗi
+  const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category || "TIN TỨC";
+  // Xử lý Tác giả dạng object -> chuỗi tên
   const authorName = typeof post.author === "object" ? post.author.name || "Dân Trí" : post.author || "Dân Trí";
 
+  // 1. Chuyên mục
   document.getElementById("detail-category").innerText = catName;
+  // 2. Tiêu đề
   document.getElementById("detail-title").innerText = post.title;
-  document.getElementById("detail-author").innerHTML = `<i class="fa-solid fa-user"></i> ${authorName}`;
-  document.getElementById("detail-time").innerHTML = `<i class="fa-regular fa-clock"></i> ${post.publishedAt || ""}`;
-  document.getElementById("detail-source").innerHTML = `<i class="fa-solid fa-globe"></i> ${post.source || "dantri.com.vn"}`;
+  // 3. Tác giả
+  document.getElementById("detail-author").innerHTML = `<i class="fa-solid fa-user"></i> Tác giả: <strong>${authorName}</strong>`;
+  // 4. Thời gian đăng
+  document.getElementById("detail-time").innerHTML = `<i class="fa-regular fa-clock"></i> Ngày đăng: ${post.publishedAt || ""}`;
+  // Nguồn tin
+  document.getElementById("detail-source").innerHTML = `<i class="fa-solid fa-globe"></i> Nguồn: ${post.source || "dantri.com.vn"}`;
+  
+  // Tóm tắt sapo
   document.getElementById("detail-excerpt").innerText = post.excerpt || "";
-  document.getElementById("detail-image").src = post.image || "https://via.placeholder.com/600x400";
-  document.getElementById("detail-content").innerText = post.content || post.excerpt || "";
+
+  // 5. Ảnh bài viết
+  const imgElement = document.getElementById("detail-image");
+  if (post.image) {
+    imgElement.src = post.image;
+    document.getElementById("detail-image-wrapper").style.display = "block";
+  } else {
+    document.getElementById("detail-image-wrapper").style.display = "none";
+  }
+
+  // 6. Nội dung chi tiết
+  document.getElementById("detail-content").innerHTML = `<p>${(post.content || post.excerpt || "").replace(/\n/g, "</p><p>")}</p>`;
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -225,11 +250,8 @@ function backToCategoryView() {
   document.getElementById("category-view").classList.remove("hidden");
 }
 
-// Xử lý Tìm kiếm bài viết
 function handleSearch(event) {
-  if (event.key === "Enter") {
-    executeSearch();
-  }
+  if (event.key === "Enter") executeSearch();
 }
 
 function executeSearch() {
@@ -248,7 +270,7 @@ function executeSearch() {
   const remainingList = document.getElementById("remaining-posts-list");
 
   if (results.length === 0) {
-    topLeft.innerHTML = "<p>Không tìm thấy bài viết phù hợp.</p>";
+    topLeft.innerHTML = "<p>Không tìm thấy bài viết nào phù hợp.</p>";
     topRight.innerHTML = "";
     remainingList.innerHTML = "";
     return;
