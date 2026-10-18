@@ -1,0 +1,569 @@
+{
+  "menu": [
+    {
+      "id": "home",
+      "title": "TRANG CHỦ",
+      "url": "https://dantri.com.vn/",
+      "type": "home"
+    },
+    {
+      "id": "dt360",
+      "title": "DÂN TRÍ 360",
+      "url": "https://dantri.com.vn/dt360.htm",
+      "type": "external"
+    },
+    {
+      "id": "latest",
+      "title": "MỚI NHẤT",
+      "url": "https://dantri.com.vn/tin-moi-nhat.htm",
+      "type": "category"
+    },
+    {
+      "id": "the-gioi",
+      "title": "THẾ GIỚI",
+      "url": "https://dantri.com.vn/the-gioi.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "quan-su",
+          "title": "QUÂN SỰ",
+          "url": "https://dantri.com.vn/the-gioi/quan-su.htm"
+        },
+        {
+          "id": "phan-tich-binh-luan",
+          "title": "PHÂN TÍCH - BÌNH LUẬN",
+          "url": "https://dantri.com.vn/the-gioi/phan-tich-binh-luan.htm"
+        },
+        {
+          "id": "the-gioi-do-day",
+          "title": "THẾ GIỚI ĐÓ ĐÂY",
+          "url": "https://dantri.com.vn/the-gioi/the-gioi-do-day.htm"
+        },
+        {
+          "id": "kieu-bao",
+          "title": "KIỀU BÀO",
+          "url": "https://dantri.com.vn/the-gioi/kieu-bao.htm"
+        }
+      ]
+    },
+    {
+      "id": "thoi-su",
+      "title": "THỜI SỰ",
+      "url": "https://dantri.com.vn/thoi-su.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "chinh-tri",
+          "title": "CHÍNH TRỊ",
+          "url": "https://dantri.com.vn/thoi-su/chinh-tri.htm"
+        },
+        {
+          "id": "dua-nghi-quyet-cua-dang-vao-cuoc-song",
+          "title": "ĐƯA NGHỊ QUYẾT CỦA ĐẢNG VÀO CUỘC SỐNG",
+          "url": "https://dantri.com.vn/thoi-su/dua-nghi-quyet-cua-dang-vao-cuoc-song.htm"
+        },
+        {
+          "id": "bau-cu-dai-bieu-quoc-hoi",
+          "title": "BẦU CỬ ĐẠI BIỂU QUỐC HỘI",
+          "url": "https://dantri.com.vn/thoi-su/bau-cu-dai-bieu-quoc-hoi.htm"
+        },
+        {
+          "id": "hoc-tap-bac",
+          "title": "HỌC TẬP BÁC",
+          "url": "https://dantri.com.vn/thoi-su/hoc-tap-bac.htm"
+        },
+        {
+          "id": "moi-truong",
+          "title": "MÔI TRƯỜNG",
+          "url": "https://dantri.com.vn/thoi-su/moi-truong.htm"
+        },
+        {
+          "id": "giao-thong",
+          "title": "GIAO THÔNG",
+          "url": "https://dantri.com.vn/thoi-su/giao-thong.htm"
+        },
+        {
+          "id": "nong-tren-mang",
+          "title": "NÓNG TRÊN MẠNG",
+          "url": "https://dantri.com.vn/thoi-su/nong-tren-mang.htm"
+        }
+      ]
+    },
+    {
+      "id": "phap-luat",
+      "title": "PHÁP LUẬT",
+      "url": "https://dantri.com.vn/phap-luat.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "ho-so-vu-an",
+          "title": "HỒ SƠ VỤ ÁN",
+          "url": "https://dantri.com.vn/phap-luat/ho-so-vu-an.htm"
+        },
+        {
+          "id": "phap-dinh",
+          "title": "PHÁP ĐÌNH",
+          "url": "https://dantri.com.vn/phap-luat/phap-dinh.htm"
+        }
+      ]
+    },
+    {
+      "id": "suc-khoe",
+      "title": "SỨC KHỎE",
+      "url": "https://dantri.com.vn/suc-khoe.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "ung-thu",
+          "title": "UNG THƯ",
+          "url": "https://dantri.com.vn/suc-khoe/ung-thu.htm"
+        },
+        {
+          "id": "song-khoe",
+          "title": "SỐNG KHỎE",
+          "url": "https://dantri.com.vn/suc-khoe/song-khoe.htm"
+        },
+        {
+          "id": "than-va-benh-man-tinh",
+          "title": "THẬN & BỆNH MẠN TÍNH",
+          "url": "https://dantri.com.vn/suc-khoe/than-va-benh-man-tinh.htm"
+        },
+        {
+          "id": "tam-soat-chan-doan",
+          "title": "TẦM SOÁT - CHẨN ĐOÁN",
+          "url": "https://dantri.com.vn/suc-khoe/tam-soat-chan-doan.htm"
+        },
+        {
+          "id": "sinh-san-hiem-muon",
+          "title": "SINH SẢN - HIẾM MUỘN",
+          "url": "https://dantri.com.vn/suc-khoe/sinh-san-hiem-muon.htm"
+        },
+        {
+          "id": "ngoai-than-kinh-cot-song",
+          "title": "NGOẠI THẦN KINH - CỘT SỐNG",
+          "url": "https://dantri.com.vn/suc-khoe/ngoai-than-kinh-cot-song.htm"
+        },
+        {
+          "id": "cham-dut-con-dau",
+          "title": "CHẤM DỨT CƠN ĐAU",
+          "url": "https://dantri.com.vn/suc-khoe/cham-dut-con-dau.htm"
+        },
+        {
+          "id": "tu-van-y-khoa",
+          "title": "TƯ VẤN Y KHOA",
+          "url": "https://dantri.com.vn/suc-khoe/tu-van-y-khoa.htm"
+        },
+        {
+          "id": "thuoc-va-giai-phap-ho-tro",
+          "title": "THUỐC VÀ GIẢI PHÁP HỖ TRỢ",
+          "url": "https://dantri.com.vn/suc-khoe/thuoc-va-giai-phap-ho-tro.htm"
+        }
+      ]
+    },
+    {
+      "id": "doi-song",
+      "title": "ĐỜI SỐNG",
+      "url": "https://dantri.com.vn/doi-song.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "cong-dong",
+          "title": "CỘNG ĐỒNG",
+          "url": "https://dantri.com.vn/doi-song/cong-dong.htm"
+        },
+        {
+          "id": "thuong-luu",
+          "title": "THƯỢNG LƯU",
+          "url": "https://dantri.com.vn/doi-song/thuong-luu.htm"
+        },
+        {
+          "id": "nha-dep",
+          "title": "NHÀ ĐẸP",
+          "url": "https://dantri.com.vn/doi-song/nha-dep.htm"
+        },
+        {
+          "id": "gioi-tre",
+          "title": "GIỚI TRẺ",
+          "url": "https://dantri.com.vn/doi-song/gioi-tre.htm"
+        },
+        {
+          "id": "cho-online",
+          "title": "CHỢ ONLINE",
+          "url": "https://dantri.com.vn/doi-song/cho-online.htm"
+        },
+        {
+          "id": "xo-so",
+          "title": "XỔ SỐ",
+          "url": "https://dantri.com.vn/doi-song/xo-so.htm"
+        },
+        {
+          "id": "cuoc-thi-anh-viet-nam-trong-toi",
+          "title": "CUỘC THI ẢNH VIỆT NAM TRONG TÔI",
+          "url": "https://dantri.com.vn/doi-song/cuoc-thi-anh-viet-nam-trong-toi.htm"
+        }
+      ]
+    },
+    {
+      "id": "du-lich",
+      "title": "DU LỊCH",
+      "url": "https://dantri.com.vn/du-lich.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "tin-tuc",
+          "title": "TIN TỨC",
+          "url": "https://dantri.com.vn/du-lich/tin-tuc.htm"
+        },
+        {
+          "id": "kham-pha",
+          "title": "KHÁM PHÁ",
+          "url": "https://dantri.com.vn/du-lich/kham-pha.htm"
+        },
+        {
+          "id": "mon-ngon-diem-dep",
+          "title": "MÓN NGON - ĐIỂM ĐẸP",
+          "url": "https://dantri.com.vn/du-lich/mon-ngon-diem-dep.htm"
+        },
+        {
+          "id": "tour-hay-khuyen-mai",
+          "title": "TOUR HAY - KHUYẾN MẠI",
+          "url": "https://dantri.com.vn/du-lich/tour-hay-khuyen-mai.htm"
+        },
+        {
+          "id": "video-anh",
+          "title": "VIDEO - ẢNH",
+          "url": "https://dantri.com.vn/du-lich/video-anh.htm"
+        }
+      ]
+    },
+    {
+      "id": "kinh-doanh",
+      "title": "KINH DOANH",
+      "url": "https://dantri.com.vn/kinh-doanh.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "tai-chinh",
+          "title": "TÀI CHÍNH",
+          "url": "https://dantri.com.vn/kinh-doanh/tai-chinh.htm"
+        },
+        {
+          "id": "chung-khoan",
+          "title": "CHỨNG KHOÁN",
+          "url": "https://dantri.com.vn/kinh-doanh/chung-khoan.htm"
+        },
+        {
+          "id": "doanh-nghiep",
+          "title": "DOANH NGHIỆP",
+          "url": "https://dantri.com.vn/kinh-doanh/doanh-nghiep.htm"
+        },
+        {
+          "id": "khoi-nghiep",
+          "title": "KHỞI NGHIỆP",
+          "url": "https://dantri.com.vn/kinh-doanh/khoi-nghiep.htm"
+        },
+        {
+          "id": "tieu-dung",
+          "title": "TIÊU DÙNG",
+          "url": "https://dantri.com.vn/kinh-doanh/tieu-dung.htm"
+        },
+        {
+          "id": "esg-viet-nam",
+          "title": "ESG VIỆT NAM",
+          "url": "https://dantri.com.vn/kinh-doanh/esg-viet-nam.htm"
+        },
+        {
+          "id": "tien-buoc-cung-viet-nam",
+          "title": "TIẾN BƯỚC CÙNG VIỆT NAM",
+          "url": "https://dantri.com.vn/kinh-doanh/tien-buoc-cung-viet-nam.htm"
+        },
+        {
+          "id": "toan-canh-kinh-te-tu-nhan",
+          "title": "TOÀN CẢNH KINH TẾ TƯ NHÂN",
+          "url": "https://dantri.com.vn/kinh-doanh/toan-canh-kinh-te-tu-nhan.htm"
+        }
+      ]
+    },
+    {
+      "id": "bat-dong-san",
+      "title": "BẤT ĐỘNG SẢN",
+      "url": "https://dantri.com.vn/bat-dong-san.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "du-an",
+          "title": "DỰ ÁN",
+          "url": "https://dantri.com.vn/bat-dong-san/du-an.htm"
+        },
+        {
+          "id": "thi-truong",
+          "title": "THỊ TRƯỜNG",
+          "url": "https://dantri.com.vn/bat-dong-san/thi-truong.htm"
+        },
+        {
+          "id": "nha-dat",
+          "title": "NHÀ ĐÁT",
+          "url": "https://dantri.com.vn/bat-dong-san/nha-dat.htm"
+        },
+        {
+          "id": "nhip-song-do-thi",
+          "title": "NHỊP SỐNG ĐÔ THỊ",
+          "url": "https://dantri.com.vn/bat-dong-san/nhip-song-do-thi.htm"
+        },
+        {
+          "id": "song-xanh",
+          "title": "SỐNG XANH",
+          "url": "https://dantri.com.vn/bat-dong-san/song-xanh.htm"
+        },
+        {
+          "id": "noi-that",
+          "title": "NỘI THẤT",
+          "url": "https://dantri.com.vn/bat-dong-san/noi-that.htm"
+        }
+      ]
+    },
+    {
+      "id": "the-thao",
+      "title": "THỂ THAO",
+      "url": "https://dantri.com.vn/the-thao.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "bong-da",
+          "title": "BÓNG ĐÁ",
+          "url": "https://dantri.com.vn/the-thao/bong-da.htm"
+        },
+        {
+          "id": "pickleball",
+          "title": "PICKLEBALL",
+          "url": "https://dantri.com.vn/the-thao/pickleball.htm"
+        },
+        {
+          "id": "tennis",
+          "title": "TENNIS",
+          "url": "https://dantri.com.vn/the-thao/tennis.htm"
+        },
+        {
+          "id": "golf",
+          "title": "GOLF",
+          "url": "https://dantri.com.vn/the-thao/golf.htm"
+        },
+        {
+          "id": "vo-thuat-cac-mon-khac",
+          "title": "VÕ THUẬT - CÁC MÔN KHÁC",
+          "url": "https://dantri.com.vn/the-thao/vo-thuat-cac-mon-khac.htm"
+        },
+        {
+          "id": "hau-truong",
+          "title": "HẬU TRƯỜNG",
+          "url": "https://dantri.com.vn/the-thao/hau-truong.htm"
+        },
+        {
+          "id": "the-thao-suc-ben",
+          "title": "THỂ THAO SỨC BỀN",
+          "url": "https://dantri.com.vn/the-thao/the-thao-suc-ben.htm"
+        },
+        {
+          "id": "lich-thi-dau",
+          "title": "LỊCH THI ĐẤU",
+          "url": "https://dantri.com.vn/the-thao/lich-thi-dau.htm"
+        }
+      ]
+    },
+    {
+      "id": "giai-tri",
+      "title": "GIẢI TRÍ",
+      "url": "https://dantri.com.vn/giai-tri.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "hau-truong-giai-tri",
+          "title": "HẬU TRƯỜNG",
+          "url": "https://dantri.com.vn/giai-tri/hau-truong.htm"
+        },
+        {
+          "id": "sach-hay",
+          "title": "SÁCH HAY",
+          "url": "https://dantri.com.vn/giai-tri/sach-hay.htm"
+        },
+        {
+          "id": "dien-anh",
+          "title": "ĐIỆN ẢNH",
+          "url": "https://dantri.com.vn/giai-tri/dien-anh.htm"
+        },
+        {
+          "id": "am-nhac",
+          "title": "ÂM NHẠC",
+          "url": "https://dantri.com.vn/giai-tri/am-nhac.htm"
+        },
+        {
+          "id": "thoi-trang",
+          "title": "THỜI TRANG",
+          "url": "https://dantri.com.vn/giai-tri/thoi-trang.htm"
+        },
+        {
+          "id": "my-thuat-san-khau",
+          "title": "MỸ THUẬT - SÂN KHẤU",
+          "url": "https://dantri.com.vn/giai-tri/my-thuat-san-khau.htm"
+        },
+        {
+          "id": "tet-2026",
+          "title": "TẾT 2026",
+          "url": "https://dantri.com.vn/giai-tri/tet-2026.htm"
+        }
+      ]
+    },
+    {
+      "id": "giao-duc",
+      "title": "GIÁO DỤC",
+      "url": "https://dantri.com.vn/giao-duc.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "goc-phu-huynh",
+          "title": "GÓC PHỤ HUYNH",
+          "url": "https://dantri.com.vn/giao-duc/goc-phu-huynh.htm"
+        },
+        {
+          "id": "khuyen-hoc",
+          "title": "KHUYẾN HỌC",
+          "url": "https://dantri.com.vn/giao-duc/khuyen-hoc.htm"
+        },
+        {
+          "id": "guong-sang",
+          "title": "GƯƠNG SÁNG",
+          "url": "https://dantri.com.vn/giao-duc/guong-sang.htm"
+        },
+        {
+          "id": "giao-duc-nghe-nghiep",
+          "title": "GIÁO DỤC - NGHỀ NGHIỆP",
+          "url": "https://dantri.com.vn/giao-duc/giao-duc-nghe-nghiep.htm"
+        },
+        {
+          "id": "du-hoc",
+          "title": "DU HỌC",
+          "url": "https://dantri.com.vn/giao-duc/du-hoc.htm"
+        },
+        {
+          "id": "tuyen-sinh",
+          "title": "TUYỂN SINH",
+          "url": "https://dantri.com.vn/giao-duc/tuyen-sinh.htm"
+        },
+        {
+          "id": "cuoc-thi-50-nam-thanh-pho-trong-toi",
+          "title": "CUỘC THI 50 NĂM THÀNH PHỐ TRONG TÔI",
+          "url": "https://dantri.com.vn/giao-duc/cuoc-thi-50-nam-thanh-pho-trong-toi.htm"
+        }
+      ]
+    },
+    {
+      "id": "xe",
+      "title": "XE ++",
+      "url": "https://dantri.com.vn/o-to-xe-may.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "thi-truong-xe",
+          "title": "THỊ TRƯỜNG XE",
+          "url": "https://dantri.com.vn/o-to-xe-may/thi-truong-xe.htm"
+        },
+        {
+          "id": "chon-xe",
+          "title": "CHỌN XE",
+          "url": "https://dantri.com.vn/o-to-xe-may/chon-xe.htm"
+        },
+        {
+          "id": "xe-dien",
+          "title": "XE ĐIỆN",
+          "url": "https://dantri.com.vn/o-to-xe-may/xe-dien.htm"
+        },
+        {
+          "id": "cham-xe",
+          "title": "CHĂM XE",
+          "url": "https://dantri.com.vn/o-to-xe-may/cham-xe.htm"
+        },
+        {
+          "id": "dien-dan-xe",
+          "title": "DIỄN ĐÀN XE",
+          "url": "https://dantri.com.vn/o-to-xe-may/dien-dan-xe.htm"
+        },
+        {
+          "id": "thi-ly-thuyet-bang-lai-xe",
+          "title": "THI LÝ THUYẾT BẰNG LÁI XE",
+          "url": "https://dantri.com.vn/o-to-xe-may/thi-ly-thuyet-bang-lai-xe.htm"
+        }
+      ]
+    },
+    {
+      "id": "noi-vu",
+      "title": "NỘI VỤ",
+      "url": "https://dantri.com.vn/noi-vu.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "chinh-sach-noi-vu",
+          "title": "CHÍNH SÁCH",
+          "url": "https://dantri.com.vn/noi-vu/chinh-sach.htm"
+        },
+        {
+          "id": "to-chuc-bo-may",
+          "title": "TỔ CHỨC BỘ MÁY",
+          "url": "https://dantri.com.vn/noi-vu/to-chuc-bo-may.htm"
+        },
+        {
+          "id": "tien-luong",
+          "title": "TIỀN LƯƠNG",
+          "url": "https://dantri.com.vn/noi-vu/tien-luong.htm"
+        },
+        {
+          "id": "cong-so",
+          "title": "CÔNG SỞ",
+          "url": "https://dantri.com.vn/noi-vu/cong-so.htm"
+        },
+        {
+          "id": "an-ninh",
+          "title": "AN NINH",
+          "url": "https://dantri.com.vn/noi-vu/an-ninh.htm"
+        },
+        {
+          "id": "sap-xep-cac-don-vi-hanh-chinh",
+          "title": "SẮP XẾP CÁC ĐƠN VỊ HÀNH CHÍNH",
+          "url": "https://dantri.com.vn/noi-vu/sap-xep-cac-don-vi-hanh-chinh.htm"
+        },
+        {
+          "id": "dai-hoi-thi-dua-yeu-nuoc-xi",
+          "title": "ĐẠI HỘI THI ĐƯA YÊU NƯỚC XI",
+          "url": "https://dantri.com.vn/noi-vu/dai-hoi-thi-dua-yeu-nuoc-xi.htm"
+        }
+      ]
+    },
+    {
+      "id": "nhan-ai",
+      "title": "NHÂN ÁI",
+      "url": "https://dantri.com.vn/tam-long-nhan-ai.htm",
+      "type": "category",
+      "children": [
+        {
+          "id": "hoan-canh",
+          "title": "HOÀN CẢNH",
+          "url": "https://dantri.com.vn/tam-long-nhan-ai/hoan-canh.htm"
+        },
+        {
+          "id": "du-an-cong-dong",
+          "title": "DỰ ÁN CỘNG ĐỒNG",
+          "url": "https://dantri.com.vn/tam-long-nhan-ai/du-an-cong-dong.htm"
+        },
+        {
+          "id": "nhip-cau-nhan-ai",
+          "title": "NHỊP CẦU NHÂN ÁI",
+          "url": "https://dantri.com.vn/tam-long-nhan-ai/nhip-cau-nhan-ai.htm"
+        },
+        {
+          "id": "vuot-len-so-phan",
+          "title": "VƯỢT LÊN SỐ PHẬN",
+          "url": "https://dantri.com.vn/tam-long-nhan-ai/vuot-len-so-phan.htm"
+        }
+      ]
+    }
+  ]
+}
