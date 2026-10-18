@@ -1,9 +1,10 @@
 const LOCAL_POSTS_KEY = "dantri_posts";
 const LOCAL_CATEGORIES_KEY = "dantri_categories";
+const DATA_VERSION = "v3.0_dantri_exact";
 
 let allPosts = [];
 let allCategories = [];
-let currentCategory = "latest";
+let currentCategory = "home";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await initData();
@@ -13,7 +14,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 async function initData() {
-  // 1. Đọc Chuyên mục từ LocalStorage hoặc file json
+  const currentVer = localStorage.getItem("dantri_version");
+  if (currentVer !== DATA_VERSION) {
+    localStorage.removeItem(LOCAL_POSTS_KEY);
+    localStorage.removeItem(LOCAL_CATEGORIES_KEY);
+    localStorage.setItem("dantri_version", DATA_VERSION);
+  }
+
   const localCats = localStorage.getItem(LOCAL_CATEGORIES_KEY);
   if (localCats) {
     allCategories = JSON.parse(localCats);
@@ -28,7 +35,6 @@ async function initData() {
     }
   }
 
-  // 2. Đọc Bài viết từ LocalStorage hoặc file json
   const localPosts = localStorage.getItem(LOCAL_POSTS_KEY);
   if (localPosts) {
     allPosts = JSON.parse(localPosts);
@@ -43,6 +49,10 @@ async function initData() {
   }
 }
 
+/**
+ * RENDER THANH MENU: CHỈ HIỂN THỊ CHỦ ĐỀ CHÍNH,
+ * CÁC Ý NHỎ NẰM ẨN TRONG DROPDOWN HOVER
+ */
 function renderMenu() {
   const mainMenu = document.getElementById("main-menu");
   if (!mainMenu) return;
@@ -135,55 +145,70 @@ function renderPosts(catId) {
     document.getElementById("category-title").innerText = catId === "home" ? "TRANG CHỦ" : "TIN MỚI NHẤT";
   }
 
-  // SẮP XẾP BÀI VIẾT THEO THỜI GIAN GIẢM DẦN (MỚI -> CŨ)
+  // Sắp xếp bài viết giảm dần theo thời gian (Mới -> Cũ)
   filtered.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
-  const topLeft = document.getElementById("featured-left");
-  const topRight = document.getElementById("featured-right");
+  const colLeft = document.getElementById("featured-left");
+  const colCenter = document.getElementById("featured-center");
+  const colRight = document.getElementById("featured-right");
   const remainingList = document.getElementById("remaining-posts-list");
 
   if (filtered.length === 0) {
-    topLeft.innerHTML = "<p>Chưa có bài viết nào thuộc chuyên mục này.</p>";
-    topRight.innerHTML = "";
+    colLeft.innerHTML = "";
+    colCenter.innerHTML = "<p>Chưa có bài viết nào thuộc chuyên mục này.</p>";
+    colRight.innerHTML = "";
     remainingList.innerHTML = "";
     return;
   }
 
-  // TOP SECTION: 1 Bài viết lớn bên trái (Featured)
-  const mainPost = filtered[0];
-  topLeft.innerHTML = `
-    <div class="featured-card-large" onclick="viewPostDetail('${mainPost.id}')">
-      <img src="${mainPost.image || 'https://via.placeholder.com/600x400'}" alt="${mainPost.title}">
-      <h2>${mainPost.title}</h2>
-      <p>${mainPost.excerpt}</p>
+  // BÀI TRUNG TÂM (LỚN NHẤT): Ngân hàng Nhà nước giảm lãi suất
+  const centerPost = filtered[0];
+  colCenter.innerHTML = `
+    <div class="card-center-main" onclick="viewPostDetail('${centerPost.id}')">
+      <img src="${centerPost.image}" alt="${centerPost.title}" referrerpolicy="no-referrer">
+      <h2>${centerPost.title}</h2>
+      <p>${centerPost.excerpt}</p>
     </div>
   `;
 
-  // TOP SECTION: 2 Bài viết nhỏ bên phải
-  const rightPosts = filtered.slice(1, 3);
-  topRight.innerHTML = rightPosts
+  // CỘT TRÁI (Bài Quảng Ninh & Video)
+  const leftPosts = filtered.slice(1, 3);
+  colLeft.innerHTML = leftPosts
     .map(
-      (post) => `
-    <div class="featured-card-small" onclick="viewPostDetail('${post.id}')">
-      <img src="${post.image || 'https://via.placeholder.com/150'}" alt="${post.title}">
-      <div>
-        <h3>${post.title}</h3>
-        <p class="post-meta-tag"><i class="fa-regular fa-clock"></i> ${post.publishedAt || ""}</p>
+      (post, idx) => `
+    <div class="card-left-item" onclick="viewPostDetail('${post.id}')">
+      <div class="${idx === 1 ? 'video-thumb-wrapper' : ''}">
+        <img src="${post.image}" alt="${post.title}" referrerpolicy="no-referrer">
+        ${idx === 1 ? '<span class="video-play-badge"><i class="fa-solid fa-play"></i> 01:47</span>' : ''}
       </div>
+      <h3>${post.title}</h3>
     </div>
   `
     )
     .join("");
 
-  // CÁC BÀI VIẾT CÒN LẠI (LIST DỌC)
-  const restPosts = filtered.slice(3);
+  // CỘT PHẢI (Danh sách bài nhỏ bên phải)
+  const rightPosts = filtered.slice(3, 7);
+  colRight.innerHTML = rightPosts
+    .map(
+      (post) => `
+    <div class="card-right-horizontal" onclick="viewPostDetail('${post.id}')">
+      <h3>${post.title}</h3>
+      <img src="${post.image}" alt="${post.title}" referrerpolicy="no-referrer">
+    </div>
+  `
+    )
+    .join("");
+
+  // CÁC BÀI CÒN LẠI (LIST DỌC BÊN DƯỚI)
+  const restPosts = filtered.slice(7);
   remainingList.innerHTML = restPosts
     .map((post) => {
       const authorName = typeof post.author === "object" ? post.author.name || "Dân Trí" : post.author || "Dân Trí";
       const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category;
       return `
       <div class="post-item-horizontal" onclick="viewPostDetail('${post.id}')">
-        <img src="${post.image || 'https://via.placeholder.com/220x140'}" alt="${post.title}">
+        <img src="${post.image}" alt="${post.title}" referrerpolicy="no-referrer">
         <div class="post-item-info">
           <div>
             <h3>${post.title}</h3>
@@ -202,7 +227,7 @@ function renderPosts(catId) {
 }
 
 /**
- * HIỂN THỊ TRANG CHI TIẾT BÀI VIẾT (ĐẦY ĐỦ 6 THÀNH PHẦN)
+ * HIỂN THỊ TRANG CHI TIẾT BÀI VIẾT (HIỂN THỊ ĐẦY ĐỦ 6 THÀNH PHẦN)
  */
 function viewPostDetail(postId) {
   const post = allPosts.find((p) => p.id === postId);
@@ -211,26 +236,19 @@ function viewPostDetail(postId) {
   document.getElementById("category-view").classList.add("hidden");
   document.getElementById("detail-view").classList.remove("hidden");
 
-  // Xử lý Chuyên mục dạng mảng -> chuỗi
+  // 1. Chuyên mục dạng mảng -> chuỗi
   const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category || "TIN TỨC";
-  // Xử lý Tác giả dạng object -> chuỗi tên
+  // 2. Tác giả dạng object -> tên
   const authorName = typeof post.author === "object" ? post.author.name || "Dân Trí" : post.author || "Dân Trí";
 
-  // 1. Chuyên mục
   document.getElementById("detail-category").innerText = catName;
-  // 2. Tiêu đề
   document.getElementById("detail-title").innerText = post.title;
-  // 3. Tác giả
   document.getElementById("detail-author").innerHTML = `<i class="fa-solid fa-user"></i> Tác giả: <strong>${authorName}</strong>`;
-  // 4. Thời gian đăng
   document.getElementById("detail-time").innerHTML = `<i class="fa-regular fa-clock"></i> Ngày đăng: ${post.publishedAt || ""}`;
-  // Nguồn tin
   document.getElementById("detail-source").innerHTML = `<i class="fa-solid fa-globe"></i> Nguồn: ${post.source || "dantri.com.vn"}`;
-  
-  // Tóm tắt sapo
   document.getElementById("detail-excerpt").innerText = post.excerpt || "";
 
-  // 5. Ảnh bài viết
+  // Ảnh bài viết
   const imgElement = document.getElementById("detail-image");
   if (post.image) {
     imgElement.src = post.image;
@@ -239,7 +257,7 @@ function viewPostDetail(postId) {
     document.getElementById("detail-image-wrapper").style.display = "none";
   }
 
-  // 6. Nội dung chi tiết
+  // Nội dung chi tiết bài viết
   document.getElementById("detail-content").innerHTML = `<p>${(post.content || post.excerpt || "").replace(/\n/g, "</p><p>")}</p>`;
 
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -248,6 +266,11 @@ function viewPostDetail(postId) {
 function backToCategoryView() {
   document.getElementById("detail-view").classList.add("hidden");
   document.getElementById("category-view").classList.remove("hidden");
+}
+
+function toggleSearchBox() {
+  const box = document.getElementById("search-box-container");
+  box.classList.toggle("search-box-hidden");
 }
 
 function handleSearch(event) {
@@ -265,26 +288,27 @@ function executeSearch() {
     (p) => p.title.toLowerCase().includes(query) || p.excerpt.toLowerCase().includes(query)
   );
 
-  const topLeft = document.getElementById("featured-left");
-  const topRight = document.getElementById("featured-right");
+  const colLeft = document.getElementById("featured-left");
+  const colCenter = document.getElementById("featured-center");
+  const colRight = document.getElementById("featured-right");
   const remainingList = document.getElementById("remaining-posts-list");
 
+  colLeft.innerHTML = "";
+  colCenter.innerHTML = "";
+  colRight.innerHTML = "";
+
   if (results.length === 0) {
-    topLeft.innerHTML = "<p>Không tìm thấy bài viết nào phù hợp.</p>";
-    topRight.innerHTML = "";
-    remainingList.innerHTML = "";
+    remainingList.innerHTML = "<p>Không tìm thấy bài viết nào phù hợp.</p>";
     return;
   }
 
-  topLeft.innerHTML = "";
-  topRight.innerHTML = "";
   remainingList.innerHTML = results
     .map((post) => {
       const authorName = typeof post.author === "object" ? post.author.name || "Dân Trí" : post.author;
       const catName = Array.isArray(post.category) ? post.category.join(" - ") : post.category;
       return `
       <div class="post-item-horizontal" onclick="viewPostDetail('${post.id}')">
-        <img src="${post.image}" alt="${post.title}">
+        <img src="${post.image}" alt="${post.title}" referrerpolicy="no-referrer">
         <div class="post-item-info">
           <h3>${post.title}</h3>
           <p>${post.excerpt}</p>
